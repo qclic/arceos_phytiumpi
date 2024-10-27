@@ -1,6 +1,11 @@
 use crate::mem::*;
 use page_table_entry::{aarch64::A64PTE, GenericPTE, MappingFlags};
 
+extern "C" {
+    fn _ekernel();
+}
+
+
 /// Returns the default free memory regions (kernel image end to physical memory end).
 fn __free_regions() -> impl Iterator<Item = MemRegion> {
     let start = virt_to_phys(
@@ -36,8 +41,8 @@ pub(crate) fn platform_regions() -> impl Iterator<Item = MemRegion> {
         flags: MemRegionFlags::RESERVED | MemRegionFlags::READ | MemRegionFlags::WRITE,
         name: "spintable",
     })
-    .chain(crate::mem::__nocache_regions())
-    .chain(crate::mem::__free_regions())
+    .chain(__nocache_regions())
+    .chain(__free_regions())
     .chain(crate::mem::default_mmio_regions())
 }
 

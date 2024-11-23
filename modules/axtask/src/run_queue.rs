@@ -568,7 +568,7 @@ fn gc_entry() {
 }
 
 pub(crate) fn init() {
-    let cpu_id = this_cpu_id();
+    let cpu_id = 0;
 
     // Create the `idle` task (not current task).
     const IDLE_TASK_STACK_SIZE: usize = 4096;
@@ -593,7 +593,7 @@ pub(crate) fn init() {
 }
 
 pub(crate) fn init_secondary() {
-    let cpu_id = this_cpu_id();
+    let cpu_id = 0;
 
     // Put the subsequent execution into the `idle` task.
     let idle_task = TaskInner::new_init("idle".into()).into_arc();

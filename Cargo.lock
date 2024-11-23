@@ -47,6 +47,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "arceos-exception"
+version = "0.1.0"
+dependencies = [
+ "axstd",
+ "linkme",
+]
+
+[[package]]
 name = "arceos-helloworld"
 version = "0.1.0"
 dependencies = [
@@ -68,6 +76,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "arceos-memtest"
+version = "0.1.0"
+dependencies = [
+ "axstd",
+ "rand",
+]
+
+[[package]]
 name = "arceos-shell"
 version = "0.1.0"
 dependencies = [
@@ -75,6 +91,13 @@ dependencies = [
  "axfs_vfs",
  "axstd",
  "crate_interface",
+]
+
+[[package]]
+name = "arceos-yield"
+version = "0.1.0"
+dependencies = [
+ "axstd",
 ]
 
 [[package]]
